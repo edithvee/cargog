@@ -1,0 +1,61 @@
+##			jq '.persons[] | .memberships[] | .id, .person_id, .role, .organization_id, 
+##                                            {startDateNull: .start_date}, {startDateYear: "blank"}, 
+##                                            {startDateYearMonth: "blank"}, {startDateFull: "blank"},
+##                                            {endDateNull: .end_date}, {endDateYear: "blank"}, 
+##                                            {endDateYearMonth: "blank"}, {endDateFull: "blank"},
+##                                            .area.area_type, .area.id, .area.identifier, .area.name'
+##             -c pombola.json > charges_startNull_endNull.csv
+
+##			jq '.persons[] | .memberships[] | .id, .person_id, .role, .organization_id, 
+##                                            {startDateNull: .start_date}, {startDateYear: "blank"}, 
+##                                            {startDateYearMonth: "blank"}, {startDateFull: "blank"},
+##                                            {endDateNull: "blank"}, {endDateYear: .end_date}, 
+##                                            {endDateYearMonth: "blank"}, {endDateFull: "blank"},
+##                                            .area.area_type, .area.id, .area.identifier, .area.name'
+##             -c pombola.json > charges_startNull_endYear.csv
+
+##			jq '.persons[] | .memberships[] | .id, .person_id, .role, .organization_id, 
+##                                            {startDateNull: .start_date}, {startDateYear: "blank"}, 
+##                                            {startDateYearMonth: "blank"}, {startDateFull: "blank"},
+##                                            {endDateNull: "blank"}, {endDateYear: "blank"}, 
+##                                            {endDateYearMonth: .end_date}, {endDateFull: "blank"},
+##                                            .area.area_type, .area.id, .area.identifier, .area.name'
+##             -c pombola.json > charges_startNull_endYearMonth.csv
+
+##			jq '.persons[] | .memberships[] | .id, .person_id, .role, .organization_id, 
+##                                            {startDateNull: .start_date}, {startDateYear: "blank"}, 
+##                                            {startDateYearMonth: "blank"}, {startDateFull: "blank"},
+##                                            {endDateNull: "blank"}, {endDateYear: "blank"}, 
+##                                            {endDateYearMonth: "blank"}, {endDateFull: .end_date},
+##                                            .area.area_type, .area.id, .area.identifier, .area.name'
+##             -c pombola.json > charges_startNull_endFull.csv
+
+##			jq '.persons[] | .memberships[] | .id, .person_id, .role, .organization_id, 
+##                                            {startDateNull: .start_date}, {startDateYear: "blank"}, 
+##                                            {startDateYearMonth: "blank"}, {startDateFull: "blank"},
+##                                            {endDateNull: .end_date}, {endDateYear: "blank"}, 
+##                                            {endDateYearMonth: "blank"}, {endDateFull: "blank"},
+##                                            .area.area_type, .area.id, .area.identifier, .area.name'
+##             -c pombola.json > charges_startYear_endNull.csv
+
+etc for all permutations so that the files generated will be (16 total):
+
+charges_startNull_endNull.csv
+charges_startNull_endYear.csv
+charges_startNull_endYearMonth.csv
+charges_startNull_endFull.csv
+
+charges_startYear_endNull.csv
+charges_startYear_endYear.csv
+charges_startYear_endYearMonth.csv
+charges_startYear_endFull.csv
+
+charges_startYearMonth_endNull.csv
+charges_startYearMonth_endYear.csv
+charges_startYearMonth_endYearMonth.csv
+charges_startYearMonth_endFull.csv
+
+charges_startFull_endNull.csv
+charges_startFull_endYear.csv
+charges_startFull_endYearMonth.csv
+charges_startFull_endFull.csv
